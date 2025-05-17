@@ -9,8 +9,7 @@ from utils import is_admin
 
 load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
-ADMIN_IDS = list(map(int, os.getenv("ADMIN_IDS", "").split(",")))
-
+ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_IDS", "").split(",") if x.strip().isdigit()]
 logging.basicConfig(level=logging.INFO)
 
 user_video_url = {}
